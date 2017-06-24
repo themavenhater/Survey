@@ -1,0 +1,67 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Survey</h1>
+
+    <table>
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ survey.id }}</td>
+            </tr>
+            <tr>
+                <th>Status</th>
+                <td>{% if survey.status %}Yes{% else %}No{% endif %}</td>
+            </tr>
+            <tr>
+                <th>Createdate</th>
+                <td>{% if survey.createDate %}{{ survey.createDate|date('Y-m-d') }}{% endif %}</td>
+            </tr>
+            <tr>
+                <th>Startdate</th>
+                <td>{% if survey.startDate %}{{ survey.startDate|date('Y-m-d H:i:s') }}{% endif %}</td>
+            </tr>
+            <tr>
+                <th>Enddate</th>
+                <td>{% if survey.endDate %}{{ survey.endDate|date('Y-m-d H:i:s') }}{% endif %}</td>
+            </tr>
+            <tr>
+                <th>Title</th>
+                <td>{{ survey.title }}</td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>{{ survey.description }}</td>
+            </tr>
+            <tr>
+                <th>Type</th>
+                <td>{{ survey.type }}</td>
+            </tr>
+            <tr>
+                <th>Zone</th>
+                <td>{{ survey.zone }}</td>
+            </tr>
+            <tr>
+                <th>Choices</th>
+                {#{% for choice in survey.choices %}#}
+                <td>{{ survey.choices }}</td>
+                {#{% endfor %}#}
+            </tr>
+
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('survey_index') }}">Back to the list</a>
+        </li>
+        <li>
+            <a href="{{ path('survey_edit', { 'id': survey.id }) }}">Edit</a>
+        </li>
+        <li>
+            {{ form_start(delete_form) }}
+                <input type="submit" value="Delete">
+            {{ form_end(delete_form) }}
+        </li>
+    </ul>
+{% endblock %}

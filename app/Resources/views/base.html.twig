@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <title>{% block title %}Welcome!{% endblock %}</title>
+        {% block stylesheets %}
+            <link rel="stylesheet" href="{{ asset('bootstrap/css/bootstrap.min.css') }}">
+            <link rel="stylesheet" href="{{ asset('fontawesome/css/font-awesome.min.css') }}">
+            <link rel="stylesheet" href="{{ asset('css/osx.css') }}">
+            <link rel="stylesheet" href="{{ asset('css/demo.css') }}">
+            <link rel="stylesheet" href="{{ asset('progress/jquery.lineProgressbar.css') }}">
+            <link rel="stylesheet" href="{{ asset('progress/jquery.lineProgressbar.min.css') }}">
+            <link rel="stylesheet" href="{{ asset('bootstrap-toggle-master/css/bootstrap-toggle.min.css') }}">
+            <link rel="stylesheet" href="{{ asset('c3-0.4.13/c3.css') }}">
+        {% endblock %}
+        {% block javascripts %}
+            <script type="text/javascript" src="{{ asset('js/jquery-3.2.1.js') }}"></script>
+            <script type="text/javascript" src="{{ asset('js/jquery.simplemodal.js') }}"></script>
+            <script type="text/javascript" src="{{ asset('js/osx.js') }}"></script>
+            <script type="text/javascript" src="{{ asset('progress/jquery.lineProgressbar.js') }}"></script>
+            <script type="text/javascript" src="{{ asset('bootstrap-toggle-master/js/bootstrap-toggle.min.js') }}"></script>
+            <script type="text/javascript" src="{{ asset('c3-0.4.13/2f5d3cae74c0c869fafc-588b5c6f73f66efa703937fd2dd092b1c372e802/d3.v3.min.js') }}"></script>
+            <script type="text/javascript" src="{{ asset('c3-0.4.13/c3.min.js') }}"></script>
+        {% endblock %}
+
+        <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
+    </head>
+    <body>
+    <header>
+        <nav class="navbar navbar-default">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <a class="navbar-brand" href="#">Survey</a>
+                </div>
+                <ul class="nav navbar-nav">
+                    <li class="active"><a href="{{ path('survey_index') }}">List</a></li>
+                    <li><a href="{{ path('survey_new') }}">Add new Survey </a></li>
+                    <li><a href="{{ path('survey_vote') }}">Show current survey</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+        {% block body %}{% endblock %}
+
+    </body>
+</html>

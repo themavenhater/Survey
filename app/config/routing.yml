@@ -1,0 +1,23 @@
+fo_su:
+    resource: "@FOSuBundle/Resources/config/routing.yml"
+    prefix:   /
+
+app:
+    resource: '@AppBundle/Controller/'
+    type: annotation
+
+app_survey:
+    resource: "@AppBundle/Resources/config/routing/survey.yml"
+    prefix:   /survey
+
+app_front:
+    resource: "@AppBundle/Resources/config/routing/front.yml"
+    prefix:   /front
+
+app_answer:
+    resource: "@AppBundle/Resources/config/routing/answer.yml"
+    prefix:   /answer
+
+
+
+

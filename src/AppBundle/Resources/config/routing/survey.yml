@@ -1,0 +1,38 @@
+survey_index:
+    path:     /
+    defaults: { _controller: "AppBundle:Survey:index" }
+    methods:  GET
+
+survey_show:
+    path:     /{id}/show
+    defaults: { _controller: "AppBundle:Survey:show" }
+    methods:  GET
+
+survey_new:
+    path:     /new
+    defaults: { _controller: "AppBundle:Survey:new" }
+    methods:  [GET, POST]
+
+survey_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "AppBundle:Survey:edit" }
+    methods:  [GET, POST]
+
+survey_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "AppBundle:Survey:delete" }
+    methods:  DELETE
+
+survey_vote:
+   path: /vote
+   defaults: { _controller: "AppBundle:Survey:vote" }
+
+survey_result:
+   path: /result/{id}/
+   defaults: { _controller: "AppBundle:Survey:result" }
+   methods:  GET
+
+survey_stats:
+  path: /stats/{id}/
+  defaults: { _controller: "AppBundle:Survey:stats" }
+  methods: GET

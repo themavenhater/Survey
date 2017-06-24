@@ -1,0 +1,4 @@
+front_list:
+    path:     /{id}/list
+    defaults: { _controller: "AppBundle:Front:list" }
+    methods:  GET

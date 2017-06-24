@@ -1,0 +1,9 @@
+app_survey:
+    resource: "@AppBundle/Resources/config/routing/survey.yml"
+    prefix:   /survey
+
+app_answer:
+    resource: "@AppBundle/Resources/config/routing/answer.yml"
+    prefix:   /answer
+
+

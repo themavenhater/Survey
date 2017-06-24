@@ -1,0 +1,39 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Choices list</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Choice</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for choice in choices %}
+            <tr>
+                <td><a href="{{ path('choice_show', { 'id': choice.id }) }}">{{ choice.id }}</a></td>
+                <td>{{ choice.choice }}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('choice_show', { 'id': choice.id }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('choice_edit', { 'id': choice.id }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('choice_new') }}">Create a new choice</a>
+        </li>
+    </ul>
+{% endblock %}

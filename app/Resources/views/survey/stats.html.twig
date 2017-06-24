@@ -1,0 +1,52 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+    {#statistics#}
+    <div id="cont">
+        <script>
+            c3.generate({
+                bindto: '#cont',
+                /*size: {
+                 height: 400,
+                 width: 760
+                 },*/
+                data: {
+                    columns: [
+                        {% for r in results %}
+                        ['{{ r.choice }}',
+                            {% for d in days %}
+                            {% for g in graph %}
+                            {% if d.answerDate|date('Y-m-d')==g.answerDate|date('Y-m-d') and
+                            r.choice == g.choice  %}
+                            '{{ g.1 }}',
+                            {% endif %}
+                            {% else %}
+                            '0',
+                            {% endfor %}
+                            {% endfor %}
+                        ],
+                        {% endfor %}
+                    ],
+                    type: 'spline'
+                },
+                axis: {
+                    x: {
+                        type: 'category',
+                        categories: [
+                            {% for d in days %}
+                            '{{ d.answerDate|date('Y-m-d')}}',
+                            {% endfor %}
+                        ]
+                    }
+                }
+            });
+        </script>
+    </div>
+
+{% endblock %}
+
+{% block collection_widget %}
+
+{% endblock %}
+

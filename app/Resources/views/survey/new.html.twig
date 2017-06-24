@@ -1,0 +1,21 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+    {% form_theme form ':survey:jquery.collection.html.twig' %}
+<div class="container">
+    <div class="row">
+        <div class="col">
+            <h1>Survey creation</h1>
+            {{ form(form) }}
+        </div>
+    </div>
+</div>
+    <script src="{{ asset('js/jquery-3.2.1.js') }}"></script>
+    <script src="{{ asset('collectionJquery/symfony-collection/jquery.collection.js') }}"></script>
+    <script type="text/javascript">
+        //language=JQuery-CSS
+        $('.my-selector').collection();
+    </script>
+
+{% endblock %}

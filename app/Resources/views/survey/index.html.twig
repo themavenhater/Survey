@@ -1,0 +1,77 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+<div class="container">
+    <h1>Surveys list</h1>
+    <table class="table table-hover">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Status</th>
+                <th>Createdate</th>
+                <th>Startdate</th>
+                <th>Enddate</th>
+                <th>Title</th>
+                <th>Description</th>
+                <th>Type</th>
+                <th>Zone</th>
+                <th>Actions</th>
+                <th>Statistics</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for survey in surveys %}
+            <tr>
+                <td><a href="{{ path('survey_show', { 'id': survey.id }) }}">{{ survey.id }}</a></td>
+                <td>{% if survey.status %}
+                        <div class="checkbox">
+                        <label><input type="checkbox" checked data-toggle="toggle"></label>
+                        </div>
+                    {% else %}
+                        <div class="checkbox">
+                            <label><input type="checkbox" data-toggle="toggle"></label>
+                        </div>
+                    {% endif %}</td>
+                <td>{% if survey.createDate %}{{ survey.createDate|date('Y-m-d') }}{% endif %}</td>
+                <td>{% if survey.startDate %}{{ survey.startDate|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>{% if survey.endDate %}{{ survey.endDate|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>{{ survey.title }}</td>
+                <td>{{ survey.description }}</td>
+                <td>{{ survey.type }}</td>
+                <td>{{ survey.zone }}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <button type="button" class="btn btn-info">
+                            <a href="{{ path('survey_show', { 'id': survey.id }) }}" style="color: #ddffdd;">show</a>
+                            </button>
+                        </li>
+                        <li>
+                            <button type="button" class="btn btn-success">
+                            <a href="{{ path('survey_edit', { 'id': survey.id }) }}" style="color: #ddffdd;">edit</a>
+                            </button>
+                        </li>
+                    </ul>
+                </td>
+                <td>
+                    <button type="button" class="btn btn-danger">
+                        <a href="{{ path('survey_stats', { 'id': survey.id }) }}" style="color: #FFFFFF;">show Stats</a>
+                    </button>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('survey_new') }}"><button type="button" class="btn btn-primary">
+                    Create a new survey</button></a>
+        </li>
+    </ul>
+</div>
+<script type="text/javascript">
+
+</script>
+{% endblock %}
