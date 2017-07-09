@@ -5,6 +5,9 @@
     {#statistics#}
     <div id="cont">
         <script>
+            var b1 = document.getElementById('b1'), b2 = document.getElementById('b2');
+            var a ='bar';
+
             c3.generate({
                 bindto: '#cont',
                 /*size: {
@@ -16,19 +19,18 @@
                         {% for r in results %}
                         ['{{ r.choice }}',
                             {% for d in days %}
-                            {% for g in graph %}
-                            {% if d.answerDate|date('Y-m-d')==g.answerDate|date('Y-m-d') and
-                            r.choice == g.choice  %}
-                            '{{ g.1 }}',
-                            {% endif %}
-                            {% else %}
-                            '0',
-                            {% endfor %}
+                                {% for g in graph %}
+                                    {% if d.answerDate|date('Y-m-d')==g.answerDate|date('Y-m-d') and r.choice == g.choice  %}
+                                    '{{ g.1 }}',
+                                    {% endif %}
+                                {% else %}
+                                '0',
+                                {% endfor %}
                             {% endfor %}
                         ],
                         {% endfor %}
                     ],
-                    type: 'spline'
+                    type: a
                 },
                 axis: {
                     x: {
@@ -41,9 +43,12 @@
                     }
                 }
             });
+
         </script>
     </div>
 
+    <button id="b1">bar</button>
+    <button id="b2">spline</button>
 {% endblock %}
 
 {% block collection_widget %}

@@ -191,7 +191,7 @@ class SurveyController extends Controller
 
             $answer = new Answer();
             $form = $this->createForm('AppBundle\Form\AnswerType', $answer, ['survey' => $survey]);
-            $answer->setAnswerDate(new \DateTime('2017-06-20'));
+            $answer->setAnswerDate(new \DateTime('NOW'));
             $answer->setSession($request->getSession()->getId());
             $answer->setIpAdress($request->getClientIp());
             $answer->setLastSurvey($survey->getId());
@@ -218,21 +218,6 @@ class SurveyController extends Controller
                 return $this->redirectToRoute('survey_result',['id' => $survey->getId()]);
         }
     }
-
-
-
-    private function activeAction($id)
-    {
-        $em = $this->getDoctrine()->getManager();
-        /*var_dump('tests');
-        die();*/
-        $surveys = $em->getRepository('AppBundle:Survey')->findAll();
-
-        return $this->render('survey/activeSurv.html.twig', [
-            'surveys' => $surveys,
-        ]);
-    }
-
 
 }
 

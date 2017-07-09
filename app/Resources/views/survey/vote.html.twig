@@ -1,11 +1,12 @@
-{% extends 'base.html.twig' %}
+{% extends 'bebe.html.twig' %}
 
 {% block body %}
+        <div class="container">
+                <h1>{{ survey.title }}</h1>
+                <p>{{ survey.description }}</p>
 
-        <h1>{{ survey.title }}</h1>
-        <p>{{ survey.description }}</p>
+                {{ form(form) }}
 
-        {{ form(form) }}
-
+        </div>
 {% endblock %}
 

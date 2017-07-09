@@ -1,29 +1,39 @@
-{% extends 'base.html.twig' %}
+{% extends 'bebe.html.twig' %}
 
 {% block body %}
+    <br><br><br><br>
+    <div class="container">
+        <div class="jumbotron">
+            <h1>{{ survey.title }}</h1><br>
+            <p>{{ survey.description }}</p>
+        </div>
+            <ul>
+                {% for num in count %}
+                    <div class="row">
+                    {% for result in results %}
+                            <div class="col-sm-3">
+                                <li class="badge badge-primary badge-pill">
+                                    {{ result.choice }}
 
-    <h4>{{ survey.title }}</h4>
-    <h5>{{ survey.description }}</h5>
-    <ul>
-        {% for num in count %}
-            {% for result in results %}
-                <li>{{ result.choice }}<br></li>
-                <li>nombre de vote:{{ result.1 }}</li>
-                     <div id="{{ result.id }}"></div>
-                <script>
-                    $( function() {
-                        var a = {{ result.1 }}*100/{{ num.1 }};
+                                    ({{ result.1 }})
+                                </li>
+                                <div id="{{ result.id }}"></div>
+                                <script>
+                                    $( function() {
+                                        var a = {{ result.1 }}*100/{{ num.1 }};
 
-                        $('#{{ result.id }}').LineProgressbar({
-                            percentage: a,
-                            width: '150px'
-                        });
-                    });
-                </script>
-            {% endfor %}
-        {% endfor %}
-    </ul>
-
+                                        $('#{{ result.id }}').LineProgressbar({
+                                            percentage: a,
+                                            width: '200px'
+                                        });
+                                    });
+                                </script>
+                            </div>
+                    {% endfor %}
+                    </div>
+                {% endfor %}
+            </ul>
+        </div>
 
 
 {% endblock %}
