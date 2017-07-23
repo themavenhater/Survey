@@ -23,7 +23,7 @@
         <tbody>
         {% for survey in surveys %}
             <tr>
-                <td><a href="{{ path('survey_show', { 'id': survey.id }) }}">{{ survey.id }}</a></td>
+                <td>{{ survey.id }}</td>
                 <td>{% if survey.status %}
                         <div class="checkbox">
                         <label><input type="checkbox" checked data-toggle="toggle"></label>

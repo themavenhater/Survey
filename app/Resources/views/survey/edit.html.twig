@@ -4,20 +4,12 @@
 
 <div class="container">
     <div class="row">
-        <h1>Survey edit</h1>
-        <div class="col">
-        {{ form_start(edit_form) }}
-        {{ form_widget(edit_form) }}
-        <input type="submit" value="Edit" />
-        {{ form_end(edit_form) }}
-        <li>
-            <a href="{{ path('survey_index') }}">Back to the list</a>
-        </li>
-        <li>
+        <div class="col-sm-6" style="margin-left: 25%;">
+            <h1>Survey edit</h1>
+            {{ form(edit_form) }}
             {{ form_start(delete_form) }}
                 <input type="submit" value="Delete">
-            {{ form_end(delete_form) }}
-        </li>
+                {{ form_end(delete_form) }}
         </div>
     </div>
 </div>

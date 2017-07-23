@@ -48,7 +48,7 @@ class SurveyController extends Controller
             $em->persist($survey);
             $em->flush();
 
-            return $this->redirectToRoute('survey_show', ['id' => $survey->getId()]);
+            return $this->redirectToRoute('survey_edit', ['id' => $survey->getId()]);
         }
 
         return $this->render('survey/new.html.twig', [
@@ -57,19 +57,6 @@ class SurveyController extends Controller
         ]);
     }
 
-    /**
-     * Finds and displays a survey entity.
-     *
-     */
-    public function showAction(Survey $survey)
-    {
-        $deleteForm = $this->createDeleteForm($survey);
-
-        return $this->render('survey/show.html.twig', [
-            'survey' => $survey,
-            'delete_form' => $deleteForm->createView(),
-        ]);
-    }
 
     /**
      * Displays a form to edit an existing survey entity.

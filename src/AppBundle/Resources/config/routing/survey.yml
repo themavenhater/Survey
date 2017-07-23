@@ -3,11 +3,6 @@ survey_index:
     defaults: { _controller: "AppBundle:Survey:index" }
     methods:  GET
 
-survey_show:
-    path:     /{id}/show
-    defaults: { _controller: "AppBundle:Survey:show" }
-    methods:  GET
-
 survey_new:
     path:     /new
     defaults: { _controller: "AppBundle:Survey:new" }

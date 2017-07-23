@@ -5,7 +5,7 @@
     {% form_theme form ':survey:jquery.collection.html.twig' %}
 <div class="container">
     <div class="row">
-        <div class="col-sm-3">
+        <div class="col-sm-6" style="margin-left: 25%;">
             <h1>Survey creation</h1>
             {{ form(form) }}
         </div>
@@ -16,6 +16,33 @@
     <script type="text/javascript">
         //language=JQuery-CSS
         $('.my-selector').collection();
+
+        function deselect(e) {
+            $('.pop').slideFadeToggle(function() {
+                e.removeClass('selected');
+            });
+        }
+
+        $(function() {
+            $('#contact').on('click', function() {
+                if($(this).hasClass('selected')) {
+                    deselect($(this));
+                } else {
+                    $(this).addClass('selected');
+                    $('.pop').slideFadeToggle();
+                }
+                return false;
+            });
+
+            $('.close').on('click', function() {
+                deselect($('#contact'));
+                return false;
+            });
+        });
+
+        $.fn.slideFadeToggle = function(easing, callback) {
+            return this.animate({ opacity: 'toggle', height: 'toggle' }, 'fast', easing, callback);
+        };
     </script>
 
 {% endblock %}
